@@ -945,7 +945,7 @@ export default function MarketPricePanel(props: MarketPricePanelProps) {
 
             <div class="pm-market-chart__frame pm-market-chart__frame--exact" ref={chartFrameRef}>
               <div class="pm-market-chart__watermark" aria-hidden="true">
-                <img src="/c7xdtwf0cz6mneysxo8.svg" alt="" class="pm-market-chart__watermark-badge" />
+                <img src="/transparent.png" alt="" class="pm-market-chart__watermark-badge" />
                 <span>stoppage</span>
               </div>
               <Show when={hoveredTooltip()}>

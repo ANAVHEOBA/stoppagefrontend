@@ -1,0 +1,30 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bgGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(502 505) rotate(88) scale(570)">
+      <stop offset="0" stop-color="#3263FF"/>
+      <stop offset="0.55" stop-color="#1F52FF"/>
+      <stop offset="1" stop-color="#1144F5"/>
+    </radialGradient>
+    <linearGradient id="bgShade" x1="0" y1="0" x2="1024" y2="1024" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1D55FF"/>
+      <stop offset="0.52" stop-color="#285CFF"/>
+      <stop offset="1" stop-color="#0B43F4"/>
+    </linearGradient>
+    <filter id="softShadow" x="160" y="150" width="720" height="730" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#0A31B9" flood-opacity="0.18"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#FFFFFF" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <rect width="1024" height="1024" fill="url(#bgShade)"/>
+  <rect width="1024" height="1024" fill="url(#bgGlow)" opacity="0.95"/>
+
+  <g filter="url(#softShadow)" stroke="#FFFFFF" stroke-width="64" stroke-linejoin="round" stroke-linecap="round">
+    <!-- tilted envelope frame -->
+    <path d="M276 356 L754 258 Q790 250 790 292 L790 748 Q790 800 754 792 L276 694 Q250 688 250 650 L250 392 Q250 362 276 356 Z"/>
+
+    <!-- envelope folds -->
+    <path d="M285 378 L512 520 L756 278"/>
+    <path d="M286 670 L512 520 L756 764"/>
+  </g>
+</svg>

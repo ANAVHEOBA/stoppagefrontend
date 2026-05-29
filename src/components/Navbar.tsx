@@ -36,6 +36,8 @@ import { orderClient } from "../lib/order/index.ts";
 import { clearStoredWalletPreference } from "../lib/wallet.ts";
 import AuthModal from "./AuthModal";
 import DepositModal from "./DepositModal";
+import HowItWorksModal from "./HowItWorksModal";
+import "./HowItWorksModal.css";
 
 const EVENT_PRIMARY_MARKET_STORAGE_PREFIX = "pm-event-primary-market/v1:";
 const SEARCH_RESULT_LIMIT = 6;
@@ -353,6 +355,7 @@ export default function Navbar() {
   const location = useLocation();
   const [isAuthModalOpen, setAuthModalOpen] = createSignal(false);
   const [isDepositModalOpen, setDepositModalOpen] = createSignal(false);
+  const [isHowItWorksModalOpen, setHowItWorksModalOpen] = createSignal(false);
   const [authUser, setAuthUser] = createSignal<UserResponse | null>(null);
   const [authToken, setAuthToken] = createSignal<string | null>(null);
   const [isAccountMenuOpen, setAccountMenuOpen] = createSignal(false);
@@ -405,6 +408,8 @@ export default function Navbar() {
     setDepositModalOpen(true);
   };
   const closeDepositModal = () => setDepositModalOpen(false);
+  const openHowItWorksModal = () => setHowItWorksModalOpen(true);
+  const closeHowItWorksModal = () => setHowItWorksModalOpen(false);
   const signOut = () => {
     clearStoredAuthSession();
     clearStoredWalletPreference();
@@ -777,7 +782,7 @@ export default function Navbar() {
             <div class="pm-navbar__brand-wrap">
               <a class="pm-brand" aria-label="stoppage Logo" href="/">
                 <span class="pm-brand__badge">
-                  <img src="/c7xdtwf0cz6mneysxo8.svg" alt="" aria-hidden="true" />
+                  <img src="/transparent.png" alt="" aria-hidden="true" />
                 </span>
                 <span class="pm-brand__name">stoppage</span>
               </a>
@@ -898,7 +903,7 @@ export default function Navbar() {
                 when={!isAuthenticated()}
                 fallback={<div class="pm-navbar__search-balance-spacer" aria-hidden="true" />}
               >
-                <button class="pm-link-action" type="button">
+                <button class="pm-link-action" type="button" onClick={openHowItWorksModal}>
                   <InfoIcon />
                   <span>How it works</span>
                 </button>
@@ -1101,6 +1106,10 @@ export default function Navbar() {
         user={authUser()}
         onClose={closeDepositModal}
         onBalanceRefresh={() => void refreshNavbarBalance()}
+      />
+      <HowItWorksModal
+        open={isHowItWorksModalOpen()}
+        onClose={closeHowItWorksModal}
       />
     </>
   );
